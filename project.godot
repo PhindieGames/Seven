@@ -8,14 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Minigame",
+"language": "GDScript",
+"path": "res://Games/Minigame.gd"
+} ]
 _global_script_class_icons={
-
+"Minigame": ""
 }
 
 [application]
 
 config/name="Seven"
+run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
 [rendering]

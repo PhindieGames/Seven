@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/Rocksheet.png" type="Texture" id=1]
+[ext_resource path="res://Games/Crafting/RockPiece.gd" type="Script" id=2]
+
+[node name="RockPiece" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+vframes = 2
+hframes = 5
+frame = 5
+
+[node name="Rock0" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -0.900635, -52.8492, -44.3877, -29.5146, -29.1849, 20.6899, 5.10977, 42.9638, 34.4547, 17.5079, 19.959, -37.2928 )
+disabled = true
+
+[node name="Rock1" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 1.22069, -31.2824, -28.1243, -29.5146, -28.4778, -5.82657, -43.6806, 12.9118, -36.6095, 36.5998, 11.1202, 38.0141, 40.8187, 22.4577, 40.4651, 11.8511, 10.0595, -32.3431 )
+disabled = true
+
+[node name="Rock2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -5.14328, -48.253, -56.7621, -6.88724, -12.5679, 52.5097, 48.9504, 19.2757, 45.7684, 1.24449 )
+disabled = true
+
+[node name="Rock3" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -18.2247, -48.9601, -42.2664, -32.3431, -36.256, 29.5288, -23.1745, 42.9638, 11.4737, 43.3174, 22.7874, 32.0036, 23.8481, 3.01227 )
+disabled = true
+
+[node name="Rock4" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( 10.0595, -42.2426, 1.57417, -29.8682, -13.9822, -28.1004, -44.7413, 13.9724, -44.0342, 31.2966, -7.26466, 50.0349, 21.0196, 49.3278, 48.2432, 32.7108, 44.3541, -28.1004, 28.4442, -42.9497 )
+disabled = true
+
+[node name="Rock5" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -26.7101, -45.7781, 28.0907, -46.4852, 45.0612, -15.0189, 46.1219, 17.8615, 30.5656, 52.1562, -25.2959, 50.3884, -48.6304, 33.7714, -45.4484, -12.1905 )
+disabled = true
+[connection signal="input_event" from="." to="." method="_on_RockPiece_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_RockPiece_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_RockPiece_mouse_exited"]

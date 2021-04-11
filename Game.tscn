@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Shared/Countdown.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Shared/Titlecard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Countdown" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 31.4294
+margin_top = 88.0743
+margin_right = 117.429
+margin_bottom = 153.074
+
+[node name="Titlecard" parent="CanvasLayer" instance=ExtResource( 3 )]
+margin_left = 0.31665
+margin_top = 3.22147
+margin_right = 40.3167
+margin_bottom = 43.2215
