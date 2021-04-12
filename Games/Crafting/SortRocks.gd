@@ -9,7 +9,7 @@ var iron_amount: int = 4
 func _ready() -> void:
 	spawn_rocks()
 
-func start(difficulty: int) -> void:
+func start(difficulty: int = 0) -> void:
 	rocks_amount += difficulty
 	iron_amount += difficulty
 	spawn_rocks()
@@ -39,7 +39,7 @@ func spawn_rocks() -> void:
 
 func add_rock_to_screen(rock: Area2D) -> bool:
 	# todo: make placement smarter
-	for i in range(100):
+	for _i in range(100):
 		var is_placed = true
 		var x = 50 + randf() * (get_viewport().size.x - 100)
 		var y = 50 + randf() * (get_viewport().size.y - 100)
@@ -54,7 +54,6 @@ func add_rock_to_screen(rock: Area2D) -> bool:
 			return true
 	return false
 
-	add_child(rock)
 
 func on_pick_up(rock: Area2D) -> void:
 	if rock.is_iron:

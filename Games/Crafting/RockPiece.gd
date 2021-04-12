@@ -40,7 +40,7 @@ func _on_RockPiece_mouse_entered() -> void:
 func _on_RockPiece_mouse_exited() -> void:
 	sprite.material = null
 
-func _on_RockPiece_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_RockPiece_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		print(event.button_mask)
 		# 1 left, 2 right, 4 middle, 8 down, 16 up

@@ -10,19 +10,29 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "Game",
+"language": "GDScript",
+"path": "res://Core/Game.gd"
+}, {
+"base": "Node2D",
 "class": "Minigame",
 "language": "GDScript",
 "path": "res://Games/Minigame.gd"
 } ]
 _global_script_class_icons={
+"Game": "",
 "Minigame": ""
 }
 
 [application]
 
 config/name="Seven"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://Core/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://Core/GameManager.gd"
 
 [rendering]
 
