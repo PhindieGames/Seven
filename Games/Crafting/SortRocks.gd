@@ -45,10 +45,8 @@ func add_rock_to_screen(rock: Area2D) -> bool:
 		var y = 50 + randf() * (get_viewport().size.y - 100)
 		rock.global_position = Vector2(x, y)
 		for child in get_children():
-			print(child is Area2D)
 			if child is Area2D and	child.overlaps_area(rock):
 				is_placed = false
-				print("overlap")
 				break
 		if is_placed:
 			return true

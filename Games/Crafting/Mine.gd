@@ -62,7 +62,6 @@ func pickaxe_strikes_rock() -> void:
 		rock.frame += 1
 	# play sfx/particle
 	if rock.frame == rock.hframes - 1:
-		print("SEnding game_won")
 		emit_signal("game_won")
 
 func _on_Tween_tween_started(_object: Object, _key: NodePath) -> void:

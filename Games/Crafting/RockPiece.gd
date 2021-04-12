@@ -42,7 +42,6 @@ func _on_RockPiece_mouse_exited() -> void:
 
 func _on_RockPiece_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
-		print(event.button_mask)
 		# 1 left, 2 right, 4 middle, 8 down, 16 up
 		emit_signal("picked_up")
 		queue_free()

@@ -39,6 +39,7 @@ func animate_number(number: int) -> void:
 
 func start(from: int = 7) -> void:
 	timer.start()
+	label.visible = true
 	seconds_left = from
 	count_step()
 

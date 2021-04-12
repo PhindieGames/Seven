@@ -6,6 +6,9 @@ onready var countdown = $CanvasLayer/Countdown
 onready var titlecard = $CanvasLayer/Titlecard
 var minigame = null
 
+func _ready() -> void:
+	var _e = countdown.connect("timeout", self, "minigame_timeout")
+
 func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 	minigame = mini_game
 	for child in get_children():
@@ -17,7 +20,6 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 	titlecard.play(minigame.name)
 	var _e = minigame.connect("game_won", self, "minigame_won")
 	_e = minigame.connect("game_lost", self, "minigame_lost")
-	_e = countdown.connect("timeout", self, "minigame_timeout")
 	minigame.start(difficulty)
 
 func minigame_won() -> void:

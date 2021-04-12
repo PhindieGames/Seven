@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/Pickaxe.png" type="Texture" id=2]
 [ext_resource path="res://Games/Crafting/Mine.gd" type="Script" id=3]
 
-[node name="Node2D" type="Node2D"]
+[node name="Mine" type="Node2D"]
 script = ExtResource( 3 )
 
 [node name="Rock" type="Sprite" parent="."]
