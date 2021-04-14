@@ -1,6 +1,9 @@
 extends Node2D
 class_name Game
 
+onready var applause = preload("res://assets/sfx/applause.wav")
+onready var fail = preload("res://assets/sfx/seven_fail.wav")
+# onready var applause = preload("res://assets/sfx/applause.wav")
 
 onready var countdown = $CanvasLayer/Countdown
 onready var titlecard = $CanvasLayer/Titlecard
@@ -16,6 +19,11 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 			child.queue_free()
 	add_child(minigame)
 
+	$CanvasLayer/Titlecard2.visible = true
+	$CanvasLayer/Titlecard2/Label.text = minigame.name
+	yield(get_tree().create_timer(1), "timeout")
+	$CanvasLayer/Titlecard2.visible = false
+
 	countdown.start()
 	titlecard.play(minigame.name)
 	var _e = minigame.connect("game_won", self, "minigame_won")
@@ -25,11 +33,19 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 func minigame_won() -> void:
 	minigame.set_process(false)
 	countdown.stop()
+	$AudioStreamPlayer.stream = applause
+	$AudioStreamPlayer.play()
+	yield(get_tree().create_timer(1), "timeout")
 	GameManager.next_game()
 
 func minigame_lost() -> void:
-	print(":(:(")
+	$AudioStreamPlayer.stream = fail
+	$AudioStreamPlayer.play()
 	countdown.stop()
+	# minigame.set_process(false)
 
 func minigame_timeout() -> void:
-	print("zzz")
+	$AudioStreamPlayer.stream = fail
+	$AudioStreamPlayer.play()
+	countdown.stop()
+	# minigame.set_process(false)

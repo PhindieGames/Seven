@@ -8,13 +8,15 @@ var levels = [
 	preload("res://Games/Crafting/Mine.tscn"),
 	preload("res://Games/Crafting/SortRocks.tscn"),
 	preload("res://Games/Crafting/Smelt.tscn"),
+	preload("res://Games/Crafting/Pour.tscn"),
+	preload("res://Games/Crafting/Shape.tscn"),
 ]
 
 var current_level = -1
 
 func start_game() -> void:
 	var _e = get_tree().change_scene_to(GAME_FRAMEWORK)
-	yield(get_tree(), "idle_frame")
+	yield(get_tree().create_timer(0.05), "timeout")
 	game_framework = get_tree().current_scene
 	next_game()
 
