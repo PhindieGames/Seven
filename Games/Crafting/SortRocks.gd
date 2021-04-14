@@ -7,10 +7,6 @@ onready var ROCKPIECE = preload("res://Games/Crafting/RockPiece.tscn")
 var rocks_amount: int = 6
 var iron_amount: int = 4
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	spawn_rocks()
-
 func start(difficulty: int = 0) -> void:
 	rocks_amount += difficulty
 	iron_amount += difficulty
@@ -26,6 +22,7 @@ func spawn_rocks() -> void:
 			remove_child(piece)
 			print("Failed to place iron.")
 		else:
+			print("Placed iron.")
 			piece.connect("picked_up", self, "on_pick_up", [piece])
 	for __ in range(rocks_amount):
 		var piece = ROCKPIECE.instance()
@@ -57,9 +54,9 @@ func add_rock_to_screen(rock: Area2D) -> bool:
 
 func on_pick_up(rock: Area2D) -> void:
 	if rock.is_iron:
+		print("s")
 		iron_amount -= 1
 		if iron_amount == 0:
-			print("winner winner chicken dinner")
 			emit_signal("game_won")
 	else:
 		emit_signal("game_lost")
