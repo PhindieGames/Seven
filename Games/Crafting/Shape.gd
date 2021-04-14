@@ -1,5 +1,7 @@
 extends Minigame
 
+var controls = CONTROLS.KEYS
+
 onready var animator: AnimationPlayer = $AnimationPlayer
 onready var vertical_tween: Tween = $UpDownTween
 onready var horizontal_tween: Tween = $LeftRightTween

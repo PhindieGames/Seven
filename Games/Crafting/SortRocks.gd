@@ -1,5 +1,7 @@
 extends Minigame
 
+var controls = CONTROLS.MOUSE
+
 onready var ROCKPIECE = preload("res://Games/Crafting/RockPiece.tscn")
 
 var rocks_amount: int = 6

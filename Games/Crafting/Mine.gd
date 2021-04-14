@@ -1,5 +1,7 @@
 extends Minigame
 
+var controls = CONTROLS.KEYS
+
 onready var tween: Tween = $Tween
 onready var pickaxe: Sprite = $Pickaxe
 onready var rock: Sprite = $Rock

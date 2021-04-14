@@ -21,6 +21,8 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 
 	$CanvasLayer/Titlecard2.visible = true
 	$CanvasLayer/Titlecard2/Label.text = minigame.name
+	$CanvasLayer/Titlecard2/Keys.visible = (minigame.controls == Minigame.CONTROLS.KEYS)
+	$CanvasLayer/Titlecard2/Mouse.visible = (minigame.controls == Minigame.CONTROLS.MOUSE)
 	yield(get_tree().create_timer(1), "timeout")
 	$CanvasLayer/Titlecard2.visible = false
 

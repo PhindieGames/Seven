@@ -1,5 +1,7 @@
 extends Minigame
 
+var controls = CONTROLS.KEYS
+
 onready var ORE = preload("res://Games/Crafting/RockPiece.tscn")
 onready var ORE_HIGHLIGHT = preload("res://Games/Crafting/HighlightMaterial.tres")
 

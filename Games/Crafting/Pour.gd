@@ -1,5 +1,6 @@
 extends Minigame
 
+var controls = CONTROLS.KEYS
 
 onready var pot: Sprite = $pot
 onready var indicator: Sprite = $indicator
