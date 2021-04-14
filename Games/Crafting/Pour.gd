@@ -7,6 +7,8 @@ onready var indicator: Sprite = $indicator
 
 var change_rate = 0
 var total_poured = 0
+var amount_to_pour = 1000.0
+var pour_per_stage = 250.0
 
 func pour_rate(position: int, relative: bool = true) -> int:
 	if not relative:
@@ -22,6 +24,10 @@ func pour_rate(position: int, relative: bool = true) -> int:
 		return 3
 	return 4
 
+
+func start(difficulty: int = 0) -> void:
+	amount_to_pour = 500 + 250 * difficulty
+	pour_per_stage = amount_to_pour / 4
 
 func _process(delta: float) -> void:
 	pour_process()
@@ -45,6 +51,6 @@ func pour_process() -> void:
 	if rate == 4:
 		emit_signal("game_lost")
 	total_poured += max(rate - 1, 0) * 3
-	$pour.frame = min(round(total_poured / 250.0), 4)
-	if total_poured > 1000:
+	$pour.frame = min(round(total_poured / pour_per_stage), 4)
+	if total_poured > amount_to_pour:
 		emit_signal("game_won")

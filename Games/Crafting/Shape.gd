@@ -8,9 +8,10 @@ onready var horizontal_tween: Tween = $LeftRightTween
 onready var hammer: Sprite = $hammer
 onready var sword: Sprite = $Sword
 
-var hits_per_stage = 2
+var hits_per_stage = 1
 var hits = 0
 var hammer_direction = 0
+var time_for_horizontal_movement = 1.0
 
 func _ready() -> void:
 	var _e = horizontal_tween.connect("tween_all_completed", self, "move_hammer_to_other_side")
@@ -20,13 +21,16 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down") and not vertical_tween.is_active():
 		hit()
 
+func start(difficulty: int = 0) -> void:
+	time_for_horizontal_movement = max(0.5, 1.0 - difficulty * 0.1)
+
 func move_hammer_left_to_right() -> void:
 	$LeftRightTween.interpolate_property(
 		hammer,
 		"global_position",
 		Vector2(340, hammer.global_position.y),
 		Vector2(680, hammer.global_position.y),
-		1.0
+		time_for_horizontal_movement
 	)
 	$LeftRightTween.start()
 	hammer_direction = 1
@@ -37,7 +41,7 @@ func move_hammer_right_to_left() -> void:
 		"global_position",
 		Vector2(680, hammer.global_position.y),
 		Vector2(340, hammer.global_position.y),
-		1.0
+		time_for_horizontal_movement
 	)
 	$LeftRightTween.start()
 	hammer_direction = -1
