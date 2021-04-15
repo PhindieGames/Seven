@@ -19,7 +19,7 @@ func get_random_id() -> int:
 	if is_iron:
 		return randi() % 5
 	else:
-		return 5 + randi() % 1
+		return 5 + randi() % 5
 
 func rockshape(id: int = -1) -> void:
 	if id == -1:
@@ -30,7 +30,7 @@ func rockshape(id: int = -1) -> void:
 		collision_poly = collider
 		rock_piece_id = id
 		sprite.frame = id
-		# rotation_degrees = randf() * 360
+		rotation_degrees = randf() * 360
 		collider.set_disabled(false)
 		collider.set_visible(true)
 

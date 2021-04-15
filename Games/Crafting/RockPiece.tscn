@@ -10,7 +10,6 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 vframes = 2
 hframes = 5
-frame = 5
 
 [node name="Rock0" type="CollisionPolygon2D" parent="."]
 visible = false
@@ -40,6 +39,26 @@ disabled = true
 [node name="Rock5" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PoolVector2Array( -26.7101, -45.7781, 28.0907, -46.4852, 45.0612, -15.0189, 46.1219, 17.8615, 30.5656, 52.1562, -25.2959, 50.3884, -48.6304, 33.7714, -45.4484, -12.1905 )
+disabled = true
+
+[node name="Rock6" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -40.4265, -30.1377, -15.4813, -38.6012, 8.12759, -31.0286, 15.7003, -13.2106, -5.68137, 23.7618, -23.9448, 36.2344, -47.1082, 21.98, -48.89, 7.28012 )
+disabled = true
+
+[node name="Rock7" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -39.5356, -23.0105, -17.2631, -36.374, 43.7636, -23.9014, 46.4363, 5.49832, 35.3, 43.3616, 21.9366, 51.3797, -35.5265, 39.798, -44.4355, 26.4345, -43.0992, 11.2892 )
+disabled = true
+
+[node name="Rock8" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -44.881, -6.97429, -37.3083, -36.374, 0.554962, -44.8375, 5.90036, -35.9285, 6.79126, -25.2377, 34.8546, -10.5379, 42.4273, 30.4435, 27.282, 46.9252, 14.3639, 50.9342, -44.881, 38.4616 )
+disabled = true
+
+[node name="Rock9" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -46.6628, 23.3163, -32.8538, 49.5979, 0.554962, 29.5526, 32.1819, 32.6708, 39.3091, 15.7437, 37.5273, -18.556, 11.6912, -13.2106, -11.4722, -43.5012, -38.6447, -40.383, -31.5175, -10.0924, -36.4174, 11.2892 )
 disabled = true
 [connection signal="input_event" from="." to="." method="_on_RockPiece_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_RockPiece_mouse_entered"]
