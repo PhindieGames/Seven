@@ -49,18 +49,18 @@ func increase_strokes() -> void:
 func turn(left_arm_y, right_arm_y) -> void:
 	rotate_stick()
 	increase_strokes()
-	tween.interpolate_property(
+	var _e = tween.interpolate_property(
 		left_arm,
 		"position",
 		left_arm.position,
 		Vector2(left_arm.position.x, left_arm_y),
 		0.1
 	)
-	tween.interpolate_property(
+	_e = tween.interpolate_property(
 		right_arm,
 		"position",
 		right_arm.position,
 		Vector2(right_arm.position.x, right_arm_y),
 		0.1
 	)
-	tween.start()
+	_e = tween.start()

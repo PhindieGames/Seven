@@ -16,7 +16,7 @@ func show_preview() -> Texture:
 
 func spawn_flowers(n: int) -> void:
 	for __ in range(n - 1):
-		add_flower_to_scene()
+		var _f = add_flower_to_scene()
 
 func add_flower_to_scene() -> Node:
 	var flower = FLOWER.instance()

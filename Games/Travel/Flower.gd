@@ -11,10 +11,10 @@ signal picked_up
 func dimensions() -> Vector2:
 	return sprite.get_rect().size
 
-func get_collision_shape(id: int) -> CollisionPolygon2D:
-	id = id - id % 2  # Maps odds to id - 1, because they share shapes.
+func get_collision_shape(id_: int) -> CollisionPolygon2D:
+	id_ = id_ - id_ % 2  # Maps odds to id - 1, because they share shapes.
 	for child in get_children():
-		if child.name.replace('Flower', '') == str(id):
+		if child.name.replace('Flower', '') == str(id_):
 			return child
 	return null
 
