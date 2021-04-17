@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Rock.png" type="Texture" id=1]
 [ext_resource path="res://assets/Pickaxe.png" type="Texture" id=2]
 [ext_resource path="res://Games/Crafting/Mine.gd" type="Script" id=3]
+[ext_resource path="res://assets/mine/ground_background.png" type="Texture" id=4]
 
 [node name="Mine" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="ground_background" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
 
 [node name="Rock" type="Sprite" parent="."]
 position = Vector2( 346.799, 361.018 )

@@ -1,8 +1,20 @@
 extends Control
 
+onready var number_images = [
+	preload("res://assets/zero.png"),
+	preload("res://assets/one.png"),
+	preload("res://assets/two.png"),
+	preload("res://assets/three.png"),
+	preload("res://assets/four.png"),
+	preload("res://assets/five.png"),
+	preload("res://assets/six.png"),
+	preload("res://assets/seven.png")
+]
+
 onready var timer = $Timer
 onready var label = $Label
 onready var tween = $Tween
+onready var sprite = $Sprite
 
 var seconds_left: int = 0
 
@@ -17,21 +29,24 @@ func count_step() -> void:
 
 func _on_Timer_timeout() -> void:
 	if seconds_left == 0:
-		stop()
 		emit_signal("timeout")
+
+	if seconds_left < 0:
+		stop()
 	else:
 		count_step()
 
 
 func animate_number(number: int) -> void:
-	label.text = str(number)
+	# label.text = str(number)
 	# not currently centered, but probably will replace string with a Sprite anyway
 	# (so centered scaling would be different)
+	sprite.texture = number_images[number]
 	tween.interpolate_property(
-		label,
-		"rect_scale",
-		Vector2(1, 1),
-		Vector2(2, 2),
+		sprite,
+		"scale",
+		Vector2(0.5, 0.5),
+		Vector2(0.75, 0.75),
 		1
 	)
 	tween.start()
@@ -39,7 +54,7 @@ func animate_number(number: int) -> void:
 
 func start(from: int = 7) -> void:
 	timer.start()
-	label.visible = true
+	# label.visible = true
 	seconds_left = from
 	count_step()
 
@@ -47,3 +62,4 @@ func start(from: int = 7) -> void:
 func stop() -> void:
 	timer.stop()
 	label.visible = false
+	sprite.texture = null

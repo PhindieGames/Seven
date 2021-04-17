@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Games/Crafting/Smelt.gd" type="Script" id=1]
 [ext_resource path="res://assets/Furnace.png" type="Texture" id=2]
+[ext_resource path="res://assets/mine/workshop.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.2018, 34.2474 )
 
 [node name="Smelt" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="workshop" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
 
 [node name="Furnace" type="Sprite" parent="."]
 position = Vector2( 505.191, 143.228 )

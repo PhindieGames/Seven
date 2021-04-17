@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Core/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://assets/titlebackground.png" type="Texture" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -9,6 +10,11 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="titlebackground" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 2 )
+centered = false
 
 [node name="Main" type="Control" parent="."]
 margin_right = 40.0

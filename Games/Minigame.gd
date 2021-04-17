@@ -12,3 +12,6 @@ signal game_lost
 
 func start(difficulty: int = 0) -> void:
 	pass
+
+func show_preview() -> Texture:
+	return null

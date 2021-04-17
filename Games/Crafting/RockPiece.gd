@@ -9,6 +9,9 @@ var collision_poly: CollisionPolygon2D = null
 
 signal picked_up
 
+func dimensions() -> Vector2:
+	return sprite.get_rect().size
+
 func get_collision_shape(id: int) -> CollisionPolygon2D:
 	for child in get_children():
 		if child.name.replace('Rock', '') == str(id):

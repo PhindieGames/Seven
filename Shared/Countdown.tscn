@@ -5,6 +5,7 @@
 [node name="Countdown" type="Control"]
 margin_right = 86.0
 margin_bottom = 65.0
+mouse_filter = 2
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -13,6 +14,7 @@ __meta__ = {
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 14.0
 text = "7"
@@ -21,4 +23,7 @@ __meta__ = {
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 75, 75 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
