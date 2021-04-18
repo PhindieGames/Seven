@@ -12,14 +12,14 @@ var skillpoints = 0
 var mistake_in_the_day = false
 
 var levels = [
-#	preload("res://Games/Crafting/Mine.tscn"),
-#	preload("res://Games/Crafting/SortRocks.tscn"),
-#	preload("res://Games/Crafting/Smelt.tscn"),
+	preload("res://Games/Crafting/Mine.tscn"),
+	preload("res://Games/Crafting/SortRocks.tscn"),
+	preload("res://Games/Crafting/Smelt.tscn"),
 	preload("res://Games/Crafting/Pour.tscn"),
-#	preload("res://Games/Crafting/Shape.tscn"),
-#	preload("res://Games/Travel/Kindle.tscn"),
-#	preload("res://Games/Travel/Pick.tscn"),
-#	preload("res://Games/Travel/Build.tscn"),
+	preload("res://Games/Crafting/Shape.tscn"),
+	preload("res://Games/Travel/Kindle.tscn"),
+	preload("res://Games/Travel/Pick.tscn"),
+	preload("res://Games/Travel/Build.tscn"),
 ]
 
 var current_level = -1
