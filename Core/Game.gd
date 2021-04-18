@@ -10,9 +10,11 @@ onready var countdown = $CanvasLayer/Countdown
 var minigame = null
 
 signal game_lost
+signal game_won
 
 func _ready() -> void:
 	var _e = countdown.connect("timeout", self, "minigame_timeout")
+	$CanvasLayer/Skillscreen.hide()
 
 func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 	minigame = mini_game
@@ -45,20 +47,28 @@ func minigame_won() -> void:
 	$AudioStreamPlayer.stream = applause
 	$AudioStreamPlayer.play()
 	yield(get_tree().create_timer(1), "timeout")
-	GameManager.next_game()
+	emit_signal("game_won")
 
 func minigame_lost() -> void:
+	minigame.set_process(false)
 	$AudioStreamPlayer.stream = fail
 	$AudioStreamPlayer.play()
 	countdown.stop()
 	emit_signal("game_lost")
-	# minigame.set_process(false)
 
 func minigame_timeout() -> void:
-	$AudioStreamPlayer.stream = fail
-	$AudioStreamPlayer.play()
-	countdown.stop()
-	# minigame.set_process(false)
+	minigame_lost()
 
 func show_gameover_screen() -> void:
+	$CanvasLayer/GameOver/gamecount.text = "After " + str(GameManager.current_level) + " games"
 	$CanvasLayer/GameOver.visible = true
+
+func show_skill_screen() -> void:
+	$CanvasLayer/Skillscreen.show()
+
+func hide_skill_screen() -> void:
+	$CanvasLayer/Skillscreen.hide()
+
+
+func _on_Button_pressed() -> void:
+	GameManager.to_main_menu()

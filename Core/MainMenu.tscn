@@ -20,22 +20,32 @@ centered = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Play" type="Button" parent="Main"]
+[node name="Adventure" type="Button" parent="Main"]
 margin_left = 407.293
 margin_top = 120.208
 margin_right = 522.293
 margin_bottom = 161.208
-text = "Play"
+text = "Adventure"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="About" type="Button" parent="Main"]
-margin_left = 410.515
-margin_top = 206.657
-margin_right = 520.515
-margin_bottom = 253.657
+margin_left = 410.392
+margin_top = 273.645
+margin_right = 520.392
+margin_bottom = 320.645
 text = "About"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arcade" type="Button" parent="Main"]
+margin_left = 410.0
+margin_top = 192.0
+margin_right = 521.0
+margin_bottom = 238.0
+text = "Arcade"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,10 +79,16 @@ text = "... is a series of minigames.
 Each game features different controls, 
 but all use either AWSD/Arrow keys, or the mouse.
 
+There are two game modes:
+- Adventure: complete all minigames in series. Each time you complete all games, the difficulty increases, but you get an extra life and skill point(s).
+
+- Arcade: minigames are presented in random order, increasing in difficulty over time, last as long as you can!
+
 Game and assets made by PhindieGames."
 align = 1
 valign = 1
 autowrap = true
-[connection signal="pressed" from="Main/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Main/Adventure" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/About" to="." method="_on_About_pressed"]
+[connection signal="pressed" from="Main/Arcade" to="." method="_on_Arcade_pressed"]
 [connection signal="pressed" from="About/Back" to="." method="_on_Back_pressed"]

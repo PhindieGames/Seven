@@ -23,6 +23,8 @@ func _process(_delta: float) -> void:
 
 func start(difficulty: int = 0) -> void:
 	time_for_horizontal_movement = max(0.5, 1.0 - difficulty * 0.1)
+	var scale = 1 + (1 - pow(0.8, GameManager.timing))
+	$HitArea.scale = Vector2(scale, scale)
 
 func move_hammer_left_to_right() -> void:
 	$LeftRightTween.interpolate_property(

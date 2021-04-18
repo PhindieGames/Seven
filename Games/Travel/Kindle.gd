@@ -40,6 +40,8 @@ func rotate_stick() -> void:
 
 func increase_strokes() -> void:
 	strokes += 1
+	if randf() > pow(0.8, GameManager.power):
+		strokes += 1
 	var smoke_frame = strokes / strokes_per_stage
 	if strokes >= strokes_per_stage * len(smoke_animation):
 		emit_signal("game_won")

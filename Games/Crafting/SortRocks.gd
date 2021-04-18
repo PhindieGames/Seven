@@ -26,6 +26,8 @@ func spawn_rocks() -> void:
 			remove_child(piece)
 			print("Failed to place iron.")
 		else:
+			var scale = 1 + (1 - pow(0.8, GameManager.precision))
+			piece.scale = Vector2(scale, scale)
 			piece.connect("picked_up", self, "on_pick_up", [piece])
 	for __ in range(rocks_amount):
 		var piece = ROCKPIECE.instance()

@@ -12,6 +12,8 @@ func start(difficulty: int = 0) -> void:
 
 func show_preview() -> Texture:
 	flower_to_click = add_flower_to_scene()
+	var scale = 1 + (1 - pow(0.8, GameManager.precision))
+	flower_to_click.scale = Vector2(scale, scale)
 	return load("res://assets/Pick/flower"+ str(flower_to_click.id) + ".png") as Texture
 
 func spawn_flowers(n: int) -> void:

@@ -58,13 +58,15 @@ func pickaxe_up() -> void:
 	var target_rotation = 39
 	tween_pickaxe_to(target_position, target_rotation)
 
-func pickaxe_strikes_rock() -> void:
+func pickaxe_strikes_rock(recursive: bool = false) -> void:
 	hits_done += 1
 	if hits_done % hits_per_stage == 0:
 		rock.frame += 1
 	# play sfx/particle
 	if rock.frame == rock.hframes - 1:
 		emit_signal("game_won")
+	elif not recursive and randf() >  pow(0.8, GameManager.power):
+		pickaxe_strikes_rock(true)
 
 func _on_Tween_tween_started(_object: Object, _key: NodePath) -> void:
 	is_swinging = true

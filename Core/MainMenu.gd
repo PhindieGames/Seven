@@ -16,3 +16,7 @@ func _on_About_pressed() -> void:
 
 func _on_Play_pressed() -> void:
 	GameManager.start_game()
+
+
+func _on_Arcade_pressed() -> void:
+	GameManager.start_arcade()

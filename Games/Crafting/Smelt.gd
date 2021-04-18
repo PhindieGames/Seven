@@ -56,6 +56,8 @@ func ore_in_furnace(ore: Area2D, tween: Tween) -> void:
 func start(difficulty: int = 0) -> void:
 	amount_to_melt += difficulty
 	base_ore_speed = base_ore_speed * (10 + difficulty) / 10
+	var scale = 1 + (1 - pow(0.8, GameManager.timing))
+	$ThrowWindow.scale = Vector2(scale, scale)
 	timer.connect("timeout", self, "spawn_ore")
 	timer.wait_time = 4.0 / float(amount_to_melt)
 	timer.start()
