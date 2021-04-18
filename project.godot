@@ -26,7 +26,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Seven"
+config/name="Sevonds"
+config/description="A series of minigames to be completed in seven seconds."
 run/main_scene="res://Core/MainMenu.tscn"
 config/icon="res://icon.png"
 

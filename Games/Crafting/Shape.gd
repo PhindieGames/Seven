@@ -1,13 +1,14 @@
 extends Minigame
 
+var title = "Shape"
 var controls = CONTROLS.KEYS
+onready var bgm = preload("res://assets/songs/hammer.wav")
 
 onready var animator: AnimationPlayer = $AnimationPlayer
 onready var vertical_tween: Tween = $UpDownTween
 onready var horizontal_tween: Tween = $LeftRightTween
 onready var hammer: Sprite = $hammer
 onready var sword: Sprite = $Sword
-onready var bgm = preload("res://assets/songs/hammer.wav")
 
 var hits_per_stage = 1
 var hits = 0
@@ -28,25 +29,25 @@ func start(difficulty: int = 0) -> void:
 	$HitArea.scale = Vector2(scale, scale)
 
 func move_hammer_left_to_right() -> void:
-	$LeftRightTween.interpolate_property(
+	var _e = horizontal_tween.interpolate_property(
 		hammer,
 		"global_position",
 		Vector2(340, hammer.global_position.y),
 		Vector2(680, hammer.global_position.y),
 		time_for_horizontal_movement
 	)
-	$LeftRightTween.start()
+	_e = horizontal_tween.start()
 	hammer_direction = 1
 
 func move_hammer_right_to_left() -> void:
-	$LeftRightTween.interpolate_property(
+	var _e = horizontal_tween.interpolate_property(
 		hammer,
 		"global_position",
 		Vector2(680, hammer.global_position.y),
 		Vector2(340, hammer.global_position.y),
 		time_for_horizontal_movement
 	)
-	$LeftRightTween.start()
+	_e = horizontal_tween.start()
 	hammer_direction = -1
 
 func move_hammer_to_other_side() -> void:
@@ -79,7 +80,8 @@ func hit():
 	_e = vertical_tween.start()
 	animator.play("strike", -1, -playback_speed, true)
 	yield(animator, "animation_finished")
-	_e = horizontal_tween.resume_all()
+	if $HitArea.visible:
+		_e = horizontal_tween.resume_all()
 
 func move_hit_area() -> void:
 	var current_x = $HitArea.global_position.x
@@ -100,5 +102,7 @@ func _on_HitArea_area_entered(_area: Area2D) -> void:
 	if hits % hits_per_stage == 0:
 		sword.frame += 1
 	if sword.frame == 3:
+		var _e = horizontal_tween.stop_all()
+		$HitArea.visible = false
 		emit_signal("game_won")
 	move_hit_area()

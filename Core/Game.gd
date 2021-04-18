@@ -27,7 +27,7 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 	minigame.start(difficulty)
 	minigame.set_process(false)
 	$CanvasLayer/Titlecard2.visible = true
-	$CanvasLayer/Titlecard2/Label.text = minigame.name
+	$CanvasLayer/Titlecard2/Label.text = minigame.title
 	$CanvasLayer/Titlecard2/Keys.visible = (minigame.controls == Minigame.CONTROLS.KEYS)
 	$CanvasLayer/Titlecard2/Mouse.visible = (minigame.controls == Minigame.CONTROLS.MOUSE)
 	$CanvasLayer/Titlecard2/Preview.visible = true

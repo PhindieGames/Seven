@@ -1,10 +1,11 @@
 extends Minigame
 
+var title = "Pour"
 var controls = CONTROLS.KEYS
+onready var bgm = preload("res://assets/songs/steeldrum.wav")
 
 onready var pot: Sprite = $pot
 onready var indicator: Sprite = $indicator
-onready var bgm = preload("res://assets/songs/steeldrum.wav")
 
 var change_rate = 0
 var total_poured = 0
@@ -27,7 +28,8 @@ func pour_rate(position: int, relative: bool = true) -> int:
 
 
 func start(difficulty: int = 0) -> void:
-	amount_to_pour = 500 + 250 * difficulty
+	var min_skill = min(GameManager.power, min(GameManager.timing, GameManager.precision))
+	amount_to_pour = 500 + min(250 * (difficulty - min_skill), 1500)
 	pour_per_stage = amount_to_pour / 4
 
 func _process(delta: float) -> void:

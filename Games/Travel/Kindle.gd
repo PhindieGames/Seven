@@ -1,6 +1,8 @@
 extends Minigame
 
+var title = "Kindle"
 var controls = CONTROLS.KEYS
+onready var bgm = preload("res://assets/songs/marimba.wav")
 
 onready var stick_rotation: Array = [
 	preload("res://assets/Kindle/stick.png"),
@@ -20,7 +22,6 @@ onready var left_arm: Sprite = $left_arm
 onready var right_arm: Sprite = $right_arm
 onready var stick: Sprite = $stick
 onready var smoke: Sprite = $smoke
-onready var bgm = preload("res://assets/songs/marimba.wav")
 
 var strokes_per_stage = 5
 var strokes = 0

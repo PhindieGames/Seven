@@ -1,10 +1,11 @@
 extends Minigame
 
+var title = "Smelt"
 var controls = CONTROLS.KEYS
+onready var bgm = preload("res://assets/songs/funky.wav")
 
 onready var ORE = preload("res://Games/Crafting/RockPiece.tscn")
 onready var ORE_HIGHLIGHT = preload("res://Games/Crafting/HighlightMaterial.tres")
-onready var bgm = preload("res://assets/songs/funky.wav")
 
 onready var ore_spawn = $OreSpawn
 onready var ore_stop = $OreStop
@@ -61,6 +62,7 @@ func start(difficulty: int = 0) -> void:
 	$ThrowWindow.scale = Vector2(scale, scale)
 	timer.connect("timeout", self, "spawn_ore")
 	timer.wait_time = 4.0 / float(amount_to_melt)
+	yield(get_tree().create_timer(0.5), "timeout")
 	timer.start()
 
 func spawn_ore() -> void:

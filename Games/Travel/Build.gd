@@ -2,9 +2,11 @@ extends Minigame
 
 onready var HIGHLIGHT_MATERIAL = preload("res://Games/Crafting/HighlightMaterial.tres")
 
+var title = "Build"
 var controls = CONTROLS.KEYS
-var current_key = null
 onready var bgm = preload("res://assets/songs/fun.wav")
+
+var current_key = null
 onready var key_to_sprite = {
 	"up": $up_key,
 	"right": $right_key,
@@ -21,7 +23,8 @@ func _process(_delta: float) -> void:
 			key_pressed(direction)
 
 func start(difficulty: int = 0) -> void:
-	var n = 6 + difficulty * 2
+	var min_skill = min(GameManager.power, min(GameManager.timing, GameManager.precision))
+	var n = 6 + difficulty * 2 - min_skill
 	strokes_per_frame = n / 3
 	var keys = key_to_sprite.keys()
 	for __ in range(n):

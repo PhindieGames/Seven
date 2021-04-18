@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Core/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://assets/titlebackground.png" type="Texture" id=2]
+[ext_resource path="res://assets/mainbg.png" type="Texture" id=2]
+[ext_resource path="res://assets/gwj/d20.png" type="Texture" id=3]
+[ext_resource path="res://assets/gwj/fail.png" type="Texture" id=4]
+[ext_resource path="res://assets/gwj/seven.png" type="Texture" id=5]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.91617
+margin_bottom = -1.91614
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="titlebackground" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 2 )
 centered = false
 
@@ -21,30 +25,30 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Adventure" type="Button" parent="Main"]
-margin_left = 407.293
-margin_top = 120.208
-margin_right = 522.293
-margin_bottom = 161.208
+margin_left = 147.69
+margin_top = 110.0
+margin_right = 247.69
+margin_bottom = 210.0
 text = "Adventure"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="About" type="Button" parent="Main"]
-margin_left = 410.392
-margin_top = 273.645
-margin_right = 520.392
-margin_bottom = 320.645
+margin_left = 440.0
+margin_top = 110.0
+margin_right = 540.0
+margin_bottom = 210.0
 text = "About"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Arcade" type="Button" parent="Main"]
-margin_left = 410.0
-margin_top = 192.0
-margin_right = 521.0
-margin_bottom = 238.0
+margin_left = 294.659
+margin_top = 110.0
+margin_right = 394.659
+margin_bottom = 210.0
 text = "Arcade"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,30 +56,40 @@ __meta__ = {
 
 [node name="About" type="Control" parent="."]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="About"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Back" type="Button" parent="About"]
-anchor_left = 11.738
-anchor_top = 12.6219
-anchor_right = 11.738
-anchor_bottom = 12.6219
-margin_right = 67.0
-margin_bottom = 30.0
+anchor_left = 12.2033
+anchor_top = 13.4535
+anchor_right = 12.2033
+anchor_bottom = 13.4535
+margin_left = -12009.7
+margin_top = -7563.14
+margin_right = -11959.7
+margin_bottom = -7513.14
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="Label" type="Label" parent="About"]
-margin_left = 265.958
-margin_top = 64.0883
-margin_right = 748.958
-margin_bottom = 398.088
-text = "... is a series of minigames. 
+margin_left = 270.958
+margin_top = 187.088
+margin_right = 753.958
+margin_bottom = 521.088
+text = "Sevonds is a series of minigames. 
 Each game features different controls, 
 but all use either AWSD/Arrow keys, or the mouse.
 
@@ -84,10 +98,31 @@ There are two game modes:
 
 - Arcade: minigames are presented in random order, increasing in difficulty over time, last as long as you can!
 
-Game and assets made by PhindieGames."
+Game and assets made by PhindieGames,
+except for fonts and GWJ images.
+
+Built for GWJ#32."
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="seven" type="Sprite" parent="About"]
+position = Vector2( 512, 95.806 )
+scale = Vector2( 0.820373, 0.820373 )
+texture = ExtResource( 5 )
+
+[node name="fail" type="Sprite" parent="About"]
+position = Vector2( 909.085, 325 )
+scale = Vector2( 0.227074, 0.227074 )
+texture = ExtResource( 4 )
+
+[node name="d20" type="Sprite" parent="About"]
+position = Vector2( 118.601, 325 )
+scale = Vector2( 0.227074, 0.227074 )
+texture = ExtResource( 3 )
 [connection signal="pressed" from="Main/Adventure" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="Main/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="Main/Arcade" to="." method="_on_Arcade_pressed"]

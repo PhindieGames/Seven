@@ -1,8 +1,9 @@
 extends Minigame
 
+var title = "Mine"
 var controls = CONTROLS.KEYS
-
 onready var bgm = preload("res://assets/songs/woodblock.wav")
+
 onready var tween: Tween = $Tween
 onready var pickaxe: Sprite = $Pickaxe
 onready var rock: Sprite = $Rock
