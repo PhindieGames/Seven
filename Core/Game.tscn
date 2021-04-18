@@ -271,6 +271,8 @@ align = 2
 valign = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="bgm" type="AudioStreamPlayer" parent="."]
 [connection signal="pressed" from="CanvasLayer/GameOver/Button" to="." method="_on_Button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Skillscreen/power" to="CanvasLayer/Skillscreen" method="_on_power_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Skillscreen/power" to="CanvasLayer/Skillscreen" method="_on_power_mouse_exited"]

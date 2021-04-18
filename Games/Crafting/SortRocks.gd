@@ -3,6 +3,7 @@ extends Minigame
 var controls = CONTROLS.MOUSE
 
 onready var ROCKPIECE = preload("res://Games/Crafting/RockPiece.tscn")
+onready var bgm = preload("res://assets/songs/steelguitar.wav")
 
 var rocks_amount: int = 6
 var iron_amount: int = 4

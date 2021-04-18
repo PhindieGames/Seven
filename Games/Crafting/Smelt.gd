@@ -4,6 +4,7 @@ var controls = CONTROLS.KEYS
 
 onready var ORE = preload("res://Games/Crafting/RockPiece.tscn")
 onready var ORE_HIGHLIGHT = preload("res://Games/Crafting/HighlightMaterial.tres")
+onready var bgm = preload("res://assets/songs/funky.wav")
 
 onready var ore_spawn = $OreSpawn
 onready var ore_stop = $OreStop

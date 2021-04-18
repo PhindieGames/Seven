@@ -34,6 +34,8 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 
 	yield(get_tree().create_timer(1), "timeout")
 	$CanvasLayer/Titlecard2.visible = false
+	$bgm.stream = minigame.bgm
+	$bgm.play()
 
 	countdown.start()
 	# titlecard.play(minigame.name)
@@ -43,6 +45,7 @@ func start_minigame(mini_game: Minigame, difficulty: int = 0) -> void:
 
 func minigame_won() -> void:
 	minigame.set_process(false)
+	$bgm.stop()
 	countdown.stop()
 	$AudioStreamPlayer.stream = applause
 	$AudioStreamPlayer.play()
@@ -51,6 +54,7 @@ func minigame_won() -> void:
 
 func minigame_lost() -> void:
 	minigame.set_process(false)
+	$bgm.stop()
 	$AudioStreamPlayer.stream = fail
 	$AudioStreamPlayer.play()
 	countdown.stop()

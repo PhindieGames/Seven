@@ -4,6 +4,7 @@ var controls = CONTROLS.KEYS
 
 onready var pot: Sprite = $pot
 onready var indicator: Sprite = $indicator
+onready var bgm = preload("res://assets/songs/steeldrum.wav")
 
 var change_rate = 0
 var total_poured = 0

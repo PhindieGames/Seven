@@ -7,6 +7,7 @@ onready var vertical_tween: Tween = $UpDownTween
 onready var horizontal_tween: Tween = $LeftRightTween
 onready var hammer: Sprite = $hammer
 onready var sword: Sprite = $Sword
+onready var bgm = preload("res://assets/songs/hammer.wav")
 
 var hits_per_stage = 1
 var hits = 0

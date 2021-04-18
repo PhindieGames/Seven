@@ -3,6 +3,7 @@ extends Minigame
 var controls = CONTROLS.MOUSE
 
 onready var FLOWER = preload("res://Games/Travel/Flower.tscn")
+onready var bgm = preload("res://assets/songs/meadow.wav")
 
 var placed_flowers: Array = []  # Array of Rects for computing valid placements
 var flower_to_click = null

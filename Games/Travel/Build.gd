@@ -4,6 +4,7 @@ onready var HIGHLIGHT_MATERIAL = preload("res://Games/Crafting/HighlightMaterial
 
 var controls = CONTROLS.KEYS
 var current_key = null
+onready var bgm = preload("res://assets/songs/fun.wav")
 onready var key_to_sprite = {
 	"up": $up_key,
 	"right": $right_key,

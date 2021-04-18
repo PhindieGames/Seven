@@ -20,6 +20,7 @@ onready var left_arm: Sprite = $left_arm
 onready var right_arm: Sprite = $right_arm
 onready var stick: Sprite = $stick
 onready var smoke: Sprite = $smoke
+onready var bgm = preload("res://assets/songs/marimba.wav")
 
 var strokes_per_stage = 5
 var strokes = 0
